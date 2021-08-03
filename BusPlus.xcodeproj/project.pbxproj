@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		BECFC01C26B9D1D0005CC3AE /* BusPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFC01B26B9D1D0005CC3AE /* BusPlusApp.swift */; };
-		BECFC01E26B9D1D0005CC3AE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFC01D26B9D1D0005CC3AE /* ContentView.swift */; };
 		BECFC02026B9D1D2005CC3AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BECFC01F26B9D1D2005CC3AE /* Assets.xcassets */; };
 		BECFC02326B9D1D2005CC3AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BECFC02226B9D1D2005CC3AE /* Preview Assets.xcassets */; };
+		BECFC02A26B9E4D4005CC3AE /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFC02926B9E4D4005CC3AE /* URLSession.swift */; };
+		BECFC02C26B9E4E3005CC3AE /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFC02B26B9E4E3005CC3AE /* Bus.swift */; };
+		BECFC02E26B9E508005CC3AE /* BusesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFC02D26B9E508005CC3AE /* BusesView.swift */; };
+		BECFC03026B9E515005CC3AE /* BusBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFC02F26B9E515005CC3AE /* BusBox.swift */; };
+		BECFC03526B9EF74005CC3AE /* BusDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECFC03426B9EF74005CC3AE /* BusDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BECFC01826B9D1D0005CC3AE /* BusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECFC01B26B9D1D0005CC3AE /* BusPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusPlusApp.swift; sourceTree = "<group>"; };
-		BECFC01D26B9D1D0005CC3AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BECFC01F26B9D1D2005CC3AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BECFC02226B9D1D2005CC3AE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BECFC02926B9E4D4005CC3AE /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		BECFC02B26B9E4E3005CC3AE /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
+		BECFC02D26B9E508005CC3AE /* BusesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusesView.swift; sourceTree = "<group>"; };
+		BECFC02F26B9E515005CC3AE /* BusBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusBox.swift; sourceTree = "<group>"; };
+		BECFC03426B9EF74005CC3AE /* BusDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				BECFC01B26B9D1D0005CC3AE /* BusPlusApp.swift */,
-				BECFC01D26B9D1D0005CC3AE /* ContentView.swift */,
+				BECFC03126B9E51E005CC3AE /* Views */,
+				BECFC03226B9E523005CC3AE /* Models */,
+				BECFC03326B9E52F005CC3AE /* Extensions */,
 				BECFC01F26B9D1D2005CC3AE /* Assets.xcassets */,
 				BECFC02126B9D1D2005CC3AE /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				BECFC02226B9D1D2005CC3AE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BECFC03126B9E51E005CC3AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BECFC02D26B9E508005CC3AE /* BusesView.swift */,
+				BECFC02F26B9E515005CC3AE /* BusBox.swift */,
+				BECFC03426B9EF74005CC3AE /* BusDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BECFC03226B9E523005CC3AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BECFC02B26B9E4E3005CC3AE /* Bus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BECFC03326B9E52F005CC3AE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BECFC02926B9E4D4005CC3AE /* URLSession.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BECFC01E26B9D1D0005CC3AE /* ContentView.swift in Sources */,
+				BECFC03026B9E515005CC3AE /* BusBox.swift in Sources */,
+				BECFC02E26B9E508005CC3AE /* BusesView.swift in Sources */,
+				BECFC03526B9EF74005CC3AE /* BusDetailView.swift in Sources */,
 				BECFC01C26B9D1D0005CC3AE /* BusPlusApp.swift in Sources */,
+				BECFC02C26B9E4E3005CC3AE /* Bus.swift in Sources */,
+				BECFC02A26B9E4D4005CC3AE /* URLSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
