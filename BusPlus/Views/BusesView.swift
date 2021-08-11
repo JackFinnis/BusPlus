@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BusesView: View {
     @State var buses = [Bus]()
+    @State var searchText: String = ""
     
     let layout = [
         GridItem(.flexible()),
@@ -17,29 +18,53 @@ struct BusesView: View {
     
     var body: some View {
         NavigationView {
-            List {
+            ScrollView {
                 LazyVGrid(columns: layout) {
-                    ForEach(buses) { bus in
+                    ForEach(filteredBuses) { bus in
                         NavigationLink(destination: BusDetailView(bus: bus)) {
                             BusBox(bus: bus)
                         }
                     }
                 }
+                .padding(.horizontal, 17)
             }
-            .listStyle(.plain)
-            .refreshable(action: loadBuses)
+            .searchable(text: $searchText.animation(), prompt: "Filter by name, start or destination")
             .navigationTitle("Bus+")
+            .toolbar {
+                Button(action: loadBuses) {
+                    Label("Refresh", systemImage: "arrow.clockwise")
+                }
+            }
         }
-        .tint(.indigo)
         .task(loadBuses)
     }
     
-    func loadBuses() async {
-        do {
+    var filteredBuses: [Bus] {
+        if searchText.isEmpty {
+            return buses
+        } else {
+            return buses.filter { bus in
+                // Mirror creates object
+                let busMirror = Mirror(reflecting: bus)
+                var isGood = false
+                
+                for child in busMirror.children {
+                    if let value = child.value as? String {
+                        if value.localizedCaseInsensitiveContains(searchText) {
+                            isGood = true
+                            break
+                        }
+                    }
+                }
+                return isGood
+            }
+        }
+    }
+    
+    func loadBuses() {
+        Task {
             let url = URL(string: "https://hws.dev/bus-timetable")!
             buses = try await URLSession.shared.decode(from: url)
-        } catch {
-            print(error.localizedDescription)
         }
     }
 }

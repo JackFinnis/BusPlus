@@ -16,8 +16,18 @@ struct BusBox: View {
                 image.resizable()
             } placeholder: {
                 Image(systemName: "bus")
+                    .foregroundColor(.indigo)
             }
             VStack {
+                HStack {
+                    Text(bus.name)
+                        .font(.subheadline.bold())
+                        .lineLimit(1)
+                    Spacer()
+                }
+                .padding(5)
+                .padding(.horizontal, 3)
+                .background(.regularMaterial)
                 Spacer()
                 HStack {
                     VStack(alignment: .leading) {
@@ -33,11 +43,13 @@ struct BusBox: View {
                                 .lineLimit(1)
                         }
                     }
-                    .padding(5)
                     Spacer()
                 }
-                .background(.thinMaterial)
+                .padding(5)
+                .padding(.horizontal, 3)
+                .background(.regularMaterial)
             }
+            .foregroundColor(.black)
         }
         .aspectRatio(1, contentMode: .fill)
         .cornerRadius(10)

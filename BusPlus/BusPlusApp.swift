@@ -11,7 +11,7 @@ import SwiftUI
 struct BusPlusApp: App {
     var body: some Scene {
         WindowGroup {
-            BusesView()
+            QRCode()
         }
     }
 }
